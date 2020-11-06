@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:mo="http://schema.broadleafcommerce.org/mo"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/jee
+        http://www.springframework.org/schema/jee/spring-jee.xsd
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://schema.broadleafcommerce.org/mo
+        http://schema.broadleafcommerce.org/mo/mo-3.0.xsd">
+
+<import resource="classpath:bl-common-applicationContext.xml"/>
+
+<import resource="classpath:bl-framework-applicationContext.xml"/>
+<import resource="classpath:bl-profile-applicationContext.xml"/>
+
+<import resource="classpath:bl-framework-applicationContext-workflow.xml"/>
+
+<import resource="classpath:bl-framework-applicationContext-persistence.xml"/>
+<import resource="classpath:bl-profile-applicationContext-persistence.xml"/>
+
+<import resource="classpath:bl-framework-applicationContext-entity.xml"/>
+<import resource="classpath:bl-profile-applicationContext-entity.xml"/>
+
+<bean id="blCacheManager" class="org.broadleafcommerce.common.extensibility.cache.ehcache.MergeEhCacheManagerFactoryBean">
+<property name="shared" value="true"/>
+</bean>
+
+<bean id="blPersistenceUnitManager" class="org.broadleafcommerce.common.extensibility.jpa.MergePersistenceUnitManager">
+<property name="persistenceXmlLocations">
+    <list>
+        <value>classpath*:/META-INF/persistence-common.xml</value>
+        <value>classpath*:/META-INF/persistence-framework.xml</value>
+        <value>classpath*:/META-INF/persistence-profile.xml</value>
+        <value>classpath*:/META-INF/persistence-core.xml</value>
+    </list>
+</property>
+</bean>
+
+<bean id="blPasswordEncoder" class="org.springframework.security.authentication.encoding.PlaintextPasswordEncoder"/>
+</beans>
