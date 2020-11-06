@@ -1,0 +1,115 @@
+<!--
+  ~ Copyright 2008-2012 the original author or authors.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~        http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<config>
+
+    <persistence directory="${java.io.tmpdir}/cache/admin"/>
+
+<!--     <cache alias="blProducts">
+        <expiry>
+            <ttl unit="seconds">3</ttl>
+        </expiry>
+        <heap unit="entries">1000</heap>
+    </cache>
+
+    <cache alias="blStandardElements">
+        <expiry>
+            <ttl unit="seconds">3</ttl>
+        </expiry>
+        <heap unit="entries">100000</heap>
+    </cache>
+    <cache alias="blCategories">
+        <expiry>
+            <ttl unit="seconds">3</ttl>
+        </expiry>
+        <heap unit="entries">100000</heap>
+    </cache>
+
+    <cache alias="blOffers">
+        <expiry>
+            <ttl unit="seconds">3</ttl>
+        </expiry>
+        <heap unit="entries">100000</heap>
+    </cache>
+    <cache alias="blInventoryElements">
+        <expiry>
+            <ttl unit="seconds">3</ttl>
+        </expiry>
+        <heap unit="entries">100000</heap>
+    </cache>
+
+    <cache alias="org.hibernate.cache.internal.StandardQueryCache">
+        <expiry>
+            <ttl unit="seconds">3</ttl>
+        </expiry>
+        <heap unit="entries">1000</heap>
+    </cache>
+    <cache alias="query.Catalog">
+        <expiry>
+            <ttl unit="seconds">3</ttl>
+        </expiry>
+        <heap unit="entries">1000</heap>
+    </cache>
+    <cache alias="query.Offer">
+        <expiry>
+            <ttl unit="seconds">3</ttl>
+        </expiry>
+        <heap unit="entries">1000</heap>
+    </cache>
+    <cache alias="blOrderElements">
+        <expiry>
+            <ttl unit="seconds">3</ttl>
+        </expiry>
+        <heap unit="entries">100000</heap>
+    </cache>
+    <cache alias="blCustomerElements">
+        <expiry>
+            <ttl unit="seconds">3</ttl>
+        </expiry>
+        <heap unit="entries">100000</heap>
+    </cache>
+    <cache alias="generatedResourceCache">
+        <expiry>
+            <ttl unit="seconds">3</ttl>
+        </expiry>
+        <heap unit="entries">100</heap>
+    </cache>
+
+    <cache alias="blCMSElements">
+        <expiry>
+            <ttl unit="seconds">3</ttl>
+        </expiry>
+        <heap unit="entries">1000</heap>
+    </cache>
+    <cache alias="blTranslationElements">
+        <expiry>
+            <ttl unit="seconds">3</ttl>
+        </expiry>
+        <heap unit="entries">1000</heap>
+    </cache>
+    <cache alias="blConfigurationModuleElements">
+        <expiry>
+            <ttl unit="seconds">3</ttl>
+        </expiry>
+        <heap unit="entries">1000</heap>
+    </cache>
+    <cache alias="org.hibernate.cache.UpdateTimestampsCache">
+        <expiry>
+            <ttl unit="seconds">3</ttl>
+        </expiry>
+        <heap unit="entries">5000</heap>
+    </cache> -->
+</config>
