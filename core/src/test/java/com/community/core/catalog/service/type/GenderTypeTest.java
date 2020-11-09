@@ -20,7 +20,7 @@ public class GenderTypeTest
 	}
 
 	@Test
-	public void testForValidType()
+	public void testEqualsForValidType()
 	{
 		final GenderType genderType = GenderType.getInstance(GenderType.MALE.getType());
 		Assert.assertNotNull(genderType);
@@ -31,14 +31,16 @@ public class GenderTypeTest
 	}
 
 	@Test
-	public void testForInvalidType()
+	public void testEqualsForInvalidType()
 	{
 
-		final GenderType genderType = GenderType.getInstance("Dummy");
+		final GenderType genderType = GenderType.getInstance("Test");
 		Assert.assertNull(genderType);
 		Assert.assertTrue(!GenderType.MALE.equals(new GenderType()));
 		Assert.assertTrue(!GenderType.MALE.equals(GenderType.FEMALE));
 	}
+
+
 
 	@Test
 	public void testFriendlyType()

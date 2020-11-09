@@ -1,6 +1,6 @@
 package com.community.core.catalog.domain;
 
-import org.broadleafcommerce.common.BroadleafEnumerationType;
+import com.community.core.catalog.service.type.GenderType;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -12,10 +12,10 @@ public class HCProductImplTest
    @Test
    public void testGenderType()
    {
-      hcProduct.setGenderType("MALE");
-      final BroadleafEnumerationType genderType = hcProduct.getGenderType();
+      hcProduct.setGenderType(GenderType.MALE);
+      final GenderType genderType = hcProduct.getGenderType();
       Assert.assertNotNull(genderType);
-      Assert.assertEquals(genderType.getType(), "MALE");
+      Assert.assertEquals(genderType, GenderType.MALE);
    }
 
 }
