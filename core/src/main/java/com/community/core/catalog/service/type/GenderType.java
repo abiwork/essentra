@@ -1,28 +1,86 @@
 package com.community.core.catalog.service.type;
 
-import org.junit.Assert;
-import org.junit.Test;
+import java.io.Serializable;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import org.broadleafcommerce.common.BroadleafEnumerationType;
 
 
-public class GenderTypeTest
+/**
+ * This class is a BroadleafEnumerationType representation for GenderType.
+ * It holds various static enum values to hold product gender types.
+ * Each object holds Gender type and its friendly names to show as labels.
+ */
+public class GenderType implements Serializable, BroadleafEnumerationType
 {
 
-	@Test
-	public void testGetInstance()
+	private static final long serialVersionUID = 1L;
+
+	private static final Map<String, GenderType> TYPES = new LinkedHashMap<String, GenderType>();
+
+	public static final GenderType MALE = new GenderType("MALE", "Male");
+	public static final GenderType FEMALE = new GenderType("FEMALE", "Female");
+	public static final GenderType UNISEX = new GenderType("UNISEX", "Unisex");
+
+	/**
+	 * Default constructor
+	 */
+	public GenderType()
 	{
-		final GenderType genderType = GenderType.valueOf("MALE");
-		Assert.assertSame(genderType, GenderType.MALE);
+		//do nothing
 	}
 
-	@Test
-	public void testFriendlyType()
+	/**
+	 * Returns the GenderType enum object for matching input type from its cached map.
+	 *
+	 * @param type - Type code of GenderType enum
+	 * @return GenderType enum
+	 */
+	public static GenderType getInstance(final String type)
 	{
-		Assert.assertEquals(GenderType.MALE.getFriendlyType(), "Male");
+		return TYPES.get(type);
 	}
 
-	@Test
-	public void testType()
+	private String type;
+	private String friendlyType;
+
+	/**
+	 * Constructor with type & friendly type input params
+	 *
+	 * @param type         - Gender Type code
+	 * @param friendlyType - Gender Type friendly names
+	 */
+	public GenderType(final String type, final String friendlyType)
 	{
-		Assert.assertEquals(GenderType.MALE.getType(), "MALE");
+		this.friendlyType = friendlyType;
+		setType(type);
 	}
+
+	@Override
+	public String getType()
+	{
+		return type;
+	}
+
+	@Override
+	public String getFriendlyType()
+	{
+		return friendlyType;
+	}
+
+	/**
+	 * Sets the GenderType object into cached map
+	 *
+	 * @param type
+	 */
+	private void setType(final String type)
+	{
+		this.type = type;
+		if (!TYPES.containsKey(type))
+		{
+			TYPES.put(type, this);
+		}
+	}
+	
 }

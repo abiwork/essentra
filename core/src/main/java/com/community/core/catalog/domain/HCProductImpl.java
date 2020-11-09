@@ -4,7 +4,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import org.broadleafcommerce.common.BroadleafEnumerationType;
 import org.broadleafcommerce.common.presentation.AdminPresentation;
 import org.broadleafcommerce.common.presentation.client.SupportedFieldType;
 import org.broadleafcommerce.core.catalog.domain.ProductImpl;
@@ -14,8 +13,10 @@ import com.community.core.catalog.service.type.GenderType;
 
 
 /**
- * Extending OOTB Product entity for Heat Clinic client demo.
- * This class will hold the entity attribute mappings for persisting product gender type.
+ * Extended OOTB Product entity for Heat Clinic client demo.
+ * This class holds the entity attribute mappings for persisting product gender type.
+ *
+ * @version initial
  */
 @Entity
 @Table(name = "HC_PRODUCT")
@@ -31,26 +32,26 @@ public class HCProductImpl extends ProductImpl
 			order = GENDER_TYPE_FIELD_ORDER, prominent = true, fieldType = SupportedFieldType.BROADLEAF_ENUMERATION,
 			broadleafEnumeration = "com.community.core.catalog.service.type.GenderType",
 			gridOrder = 1000)
-
 	protected String genderType;
 
 	/**
-	 * Get genderType
+	 * This method responsible for returning GenderType enum object which is corresponding to given
+	 * genderType set on this entity genderType attribute.
 	 *
 	 * @return GenderType enum
 	 */
-	public BroadleafEnumerationType getGenderType()
+	public GenderType getGenderType()
 	{
-		return GenderType.valueOf(genderType);
+		return GenderType.getInstance(genderType);
 	}
 
 	/**
-	 * Set genderType
+	 * This method responsible for setting the given GenderType's type input into genderType attribute
 	 *
 	 * @param genderType - GenderType enum value
 	 */
-	public void setGenderType(final String genderType)
+	public void setGenderType(final GenderType genderType)
 	{
-		this.genderType = genderType;
+		this.genderType = genderType.getType();
 	}
 }
