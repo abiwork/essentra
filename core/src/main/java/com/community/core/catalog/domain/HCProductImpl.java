@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import org.broadleafcommerce.common.BroadleafEnumerationType;
 import org.broadleafcommerce.common.presentation.AdminPresentation;
 import org.broadleafcommerce.common.presentation.client.SupportedFieldType;
 import org.broadleafcommerce.core.catalog.domain.ProductImpl;
@@ -30,7 +31,7 @@ public class HCProductImpl extends ProductImpl
 			order = GENDER_TYPE_FIELD_ORDER, prominent = true, fieldType = SupportedFieldType.BROADLEAF_ENUMERATION,
 			broadleafEnumeration = "com.community.core.catalog.service.type.GenderType",
 			gridOrder = 1000)
-	
+
 	protected String genderType;
 
 	/**
@@ -38,9 +39,9 @@ public class HCProductImpl extends ProductImpl
 	 *
 	 * @return GenderType enum
 	 */
-	public GenderType getGenderType()
+	public BroadleafEnumerationType getGenderType()
 	{
-		return GenderType.getInstance(genderType);
+		return GenderType.valueOf(genderType);
 	}
 
 	/**
@@ -48,8 +49,8 @@ public class HCProductImpl extends ProductImpl
 	 *
 	 * @param genderType - GenderType enum value
 	 */
-	public void setGenderType(final GenderType genderType)
+	public void setGenderType(final String genderType)
 	{
-		this.genderType = genderType.getType();
+		this.genderType = genderType;
 	}
 }
